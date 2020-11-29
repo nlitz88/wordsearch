@@ -49,14 +49,14 @@ def generateMatrix(rows, cols):
 # checks individual coordinates to see if a letter of a word can be placed there
 def checkCoords(matrix, rowIndex, colIndex, word, x):
 
+    # check to see if row or column indices have walked off of the matrix in any direction
     if rowIndex < 1 or colIndex < 1:
         return False
 
-    # Alternate method: Check to see if rowIndex OR colIndex are out of bounds
     elif (rowIndex > len(matrix) - 1) or (colIndex > len(matrix[0]) - 1):
         return False
 
-    # If neither of those conditions return false, then evaluate value at provided position
+    # if neither of those conditions return false, then evaluate value at provided position
     if matrix[rowIndex][colIndex] == 0 or matrix[rowIndex][colIndex] == word[x]:
         return True
     else:
@@ -68,7 +68,7 @@ def randomDirection(plottableDirections):
     return plottableDirections[x]
 
 
-# checks if word can fit in 
+# checks if word can fit in matrix at provided position.
 def canPlot(word, matrix, rowIndex, colIndex, direction):
 
     word = list(word)
